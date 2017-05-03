@@ -5,18 +5,21 @@ package com.example.leechaelin.hw_9;
  */
 
 public class fruit {
-    final static String fruitlist[]={"아보카도","바나나","체리","크랜베리","포도","키위","오렌지","수박"};
+    final static String fruitlist[]={"아보카도","바나나","체리","크랜베리","포도"};
     final static int[] imagelist={R.drawable.abocado,R.drawable.banana,R.drawable.cherry,R.drawable.cranberry,
-            R.drawable.grape,R.drawable.kiwi,R.drawable.orange,R.drawable.watermelon};
+            R.drawable.grape};
 
     String name,price;
-    int imageno;
+    int imgno;
 
-    fruit(String name,String price,int imageno){
+    fruit(String name,String price,int imgno){
         this.name = name;
         this.price = price;
-        this.imageno = imageno;
+        this.imgno = imgno;
 
+    }
+    public int getImgno(){
+        return imgno;
     }
 
 

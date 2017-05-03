@@ -50,7 +50,7 @@ public class CustomerWidget2 extends LinearLayout implements View.OnClickListene
         this.onAddListener = onAddListener;
     }
     interface ChangedOnAddListener{
-        void Changed(String name,String price,int imagno);
+        void Changed(String name,String price,int imgno);
     }
     public ChangedOnAddListener changeOnAddListener;
 

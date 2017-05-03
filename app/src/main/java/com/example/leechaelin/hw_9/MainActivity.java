@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<fruit> fruit = new ArrayList<fruit>();
     ArrayAdapter<String> fruit_name;
-    final static String fruitlist[]={"아보카도","바나나","체리","크랜베리","포도","키위","오렌지","수박"};
-    final static int[] imagelist={R.drawable.abocado,R.drawable.banana,R.drawable.cherry,R.drawable.cranberry,
-            R.drawable.grape,R.drawable.kiwi,R.drawable.orange,R.drawable.watermelon};
+    final static String fruitlist[]={"아보카도","바나나","체리","크랜베리","포도"};
+    final int[] imagelist={R.drawable.abocado,R.drawable.banana,R.drawable.cherry,R.drawable.cranberry,
+            R.drawable.grape};
     GridViewAdapter adapter;
     GridView gridview;
     CustomerWidget2 cw;
@@ -38,12 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(){
         gridview = (GridView)findViewById(R.id.gridview);
-        adapter = new GridViewAdapter(this,fruit);
-        cw = (CustomerWidget2)findViewById(R.id.cw2);
-        fruit.add(new fruit("아보카도","2000원",imagelist[0]));
-        fruit.add(new fruit("바나나","3000원",imagelist[1]));
-        fruit.add(new fruit("체리","5000원",imagelist[2]));
 
+        cw = (CustomerWidget2)findViewById(R.id.cw2);
+        fruit.add(new fruit("아보카도","2000원",0));
+        fruit.add(new fruit("바나나","3000원",1));
+        fruit.add(new fruit("체리","5000원",2));
+
+        adapter = new GridViewAdapter(this,fruit);
         gridview.setAdapter(adapter);
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 ImageView img = (ImageView)findViewById(R.id.imageview);
                 at.setText(f.name);
                 e.setText(f.price);
-                img.setImageResource(imagelist[f.imageno]);
+                img.setImageResource(imagelist[f.imgno]);
 
 
             }
@@ -88,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         cw.setChangedOnAddListener(new CustomerWidget2.ChangedOnAddListener(){
 
             @Override
-            public void Changed(String name, String price, int imagno) {
-                fruit.set(p,new fruit(name,price,imagelist[imagno]));
+            public void Changed(String name, String price, int imgno) {
+                fruit.set(p,new fruit(name,price,imagelist[imgno]));
                 cw.ButtonChange();
                 adapter.notifyDataSetChanged();
                 Toast.makeText(getApplicationContext(),"수정이 되었습니다. ",Toast.LENGTH_SHORT).show();
