@@ -10,6 +10,7 @@
         android:layout_width="137dp"
         android:layout_height="96dp"
         android:id="@+id/fruit_img"/>
+
     <TextView
         android:text="아보카도"
         android:layout_marginTop="15dp"
@@ -17,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/name"/>
+
     <TextView
         android:text="1000원"
         android:layout_gravity="center"

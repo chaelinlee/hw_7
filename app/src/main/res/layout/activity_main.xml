@@ -16,11 +16,6 @@
             android:layout_height="wrap_content"
             android:text="가격 보이기"
             android:id="@+id/checkbox" />
-        <Button
-            android:background="#f09628"
-            android:layout_width="75dp"
-            android:layout_height="wrap_content"
-            android:text="카트 보기 "/>
     </LinearLayout>
 
     <GridView

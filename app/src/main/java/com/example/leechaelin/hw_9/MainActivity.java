@@ -18,9 +18,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     ArrayList<fruit> fruit = new ArrayList<fruit>();
     ArrayAdapter<String> fruit_name;
-    final static String fruitlist[]={"아보카도","바나나","체리","크랜베리","포도"};
+    final static String fruitlist[]={"아보카도","바나나","체리","크랜베리","포도","키위","오렌지","수박 "};
     final int[] imagelist={R.drawable.abocado,R.drawable.banana,R.drawable.cherry,R.drawable.cranberry,
-            R.drawable.grape};
+            R.drawable.grape,R.drawable.kiwi,R.drawable.orange,R.drawable.watermelon};
     GridViewAdapter adapter;
     GridView gridview;
     CustomerWidget2 cw;
@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 e.setText(f.price);
                 img.setImageResource(imagelist[f.imgno]);
 
-
             }
         });
+
         fruit_name = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,fruitlist);
         atv = (AutoCompleteTextView)findViewById(R.id.atv);
         atv.setAdapter(fruit_name);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         cw.setOnAddListner(new CustomerWidget2.OnAddListener() {
             @Override
             public void onAdd(String name, String price, int imgno) {
-                fruit.add(new fruit(name,price,imagelist[imgno]));
+                fruit.add(new fruit(name,price,imgno));
                 adapter.notifyDataSetChanged();
                 Toast.makeText(getApplicationContext(),"추가되었습니다 ",Toast.LENGTH_SHORT).show();
             }
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void Changed(String name, String price, int imgno) {
-                fruit.set(p,new fruit(name,price,imagelist[imgno]));
+                fruit.set(p,new fruit(name,price,imgno));
                 cw.ButtonChange();
                 adapter.notifyDataSetChanged();
                 Toast.makeText(getApplicationContext(),"수정이 되었습니다. ",Toast.LENGTH_SHORT).show();

@@ -18,9 +18,5 @@ public class fruit {
         this.imgno = imgno;
 
     }
-    public int getImgno(){
-        return imgno;
-    }
-
 
 }
