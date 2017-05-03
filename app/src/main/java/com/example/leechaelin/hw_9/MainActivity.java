@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -16,11 +17,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<fruit> fruit = new ArrayList<fruit>();
+    ArrayAdapter<String> fruit_name;
+    final static String fruitlist[]={"아보카도","바나나","체리","크랜베리","포도","키위","오렌지","수박"};
     final static int[] imagelist={R.drawable.abocado,R.drawable.banana,R.drawable.cherry,R.drawable.cranberry,
             R.drawable.grape,R.drawable.kiwi,R.drawable.orange,R.drawable.watermelon};
     GridViewAdapter adapter;
     GridView gridview;
     CustomerWidget2 cw;
+    AutoCompleteTextView atv;
     int p=0;
     CheckBox c1;
     @Override
@@ -58,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        fruit_name = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,fruitlist);
+        atv = (AutoCompleteTextView)findViewById(R.id.atv);
+        atv.setAdapter(fruit_name);
 
         c1 = (CheckBox)findViewById(R.id.checkbox);
         c1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

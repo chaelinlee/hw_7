@@ -30,7 +30,7 @@ public class CustomWidget1 extends LinearLayout{
 
     public void setData(fruit one){
         t1.setText(one.name);
-        t2.setText(one.price+"원");
+        t2.setText(one.price);
         img.setImageResource(one.imageno);
     }
 }

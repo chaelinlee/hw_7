@@ -4,25 +4,34 @@
     android:background="#ff0"
     android:padding="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
-    <TextView
+    android:layout_height="match_parent">
+    <GridLayout
+        android:columnCount="2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" 
-        android:text="과일 이름 " />
-    
-    <AutoCompleteTextView
-        android:id="@+id/atv"
-        android:background="#fff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.69" />
-    <EditText
-        android:hint="가격입력"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editprice"
-        android:layout_weight="0.07" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:text="과일 이름:" />
+
+        <AutoCompleteTextView
+            android:layout_marginRight="20dp"
+            android:id="@+id/atv"
+            android:background="#fff"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.83" />
+
+        <EditText
+            android:hint="가격입력"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editprice"
+            android:layout_weight="0.07" />
+
+
+    </GridLayout>
+
 
     <ImageView
         android:padding="10dp"
